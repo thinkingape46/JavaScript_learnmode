@@ -30,3 +30,12 @@ var typeOfA = typeof(a)
 var typeOfC = typeof(c)
 console.log(typeOfA)
 console.log(typeOfC)
+
+// Operator preceedence.
+
+var dOB = 2005;
+var currentYear = 2020;
+var ageLimit = 18
+
+var isAdult = currentYear - dOB >= ageLimit;
+console.log(isAdult)
