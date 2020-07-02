@@ -52,6 +52,7 @@ bmiForm.addEventListener("submit", (e) => {
     e.preventDefault()
     insertBMI.textContent = ""
     bmiCat.textContent = ""
+    weightBMI.focus()
     calculateBMI()
 })
 
