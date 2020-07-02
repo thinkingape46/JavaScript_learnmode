@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <script>console.log("JS line from HTML file")</script>
+    
+</head>
+<body>
+    <h2>Section 2: JavaScript Language Basics</h2>
+    <br>
+    <h2>2.12. Coding Challenge 1</h2>
+
+    <p>Mark and John are trying to compare their BMI (Body Mass Index), which is calculated using the formula: BMI = mass / height^2 = mass / (height * height). (mass in kg and height in meter).</p>
+
+    <ol>
+        <li>Store Mark's and John's mass and height in variables</li>
+        <li>Calculate both their BMIs</li>
+        <li>Create a boolean variable containing information about whether Mark has a higher BMI than John.</li>
+        <li>Print a string to the console containing the variable from step 3. (Something like "Is Mark's BMI higher than John's? true").</li>
+    </ol>
+
+    <form id="calculateBMI">
+
+        <label for="weightBMI">Weight: </label>
+        <input type="text" id="weightBMI" placeholder="Enter weight in kg" name="height" autocomplete="off">
+
+        <label for="heightBMI">Height: </label>
+        <input type="text" id="heightBMI" placeholder="Enter height in cm" name="weight" autocomplete="off">
+
+        <input type="submit" value="Calculate BMI">
+
+        <p id="bmiResult"></p>
+        <p id="bmiCat"></p>
+
+    </form>
+    <script src="basics.js"></script>
+</body>
+</html>
