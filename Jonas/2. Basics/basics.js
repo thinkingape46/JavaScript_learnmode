@@ -80,8 +80,44 @@ function calculateBMI() {
         bmiCat.insertAdjacentHTML("beforeEnd", "You are Underweight.")
         bmiCat.style.color = "#a32600"
     }
-
 }
+
+// Ternary Operator
+
+let ageDrink = document.getElementById("ageDrink")
+let beerOrJuice = document.getElementById("beerOrJuice")
+let beerOrJuiceForm = document.getElementById("beerOrJuiceForm")
+
+beerOrJuiceForm.addEventListener("submit", (e) => {
+    e.preventDefault()    
+    ageDrink.focus()
+    beerOrJuiceFunc()
+})
+
+function beerOrJuiceFunc() {
+    ageDrink.value > 21 ? beerOrJuice.value = "Drink Beer" : beerOrJuice.value = "Drink Juice"
+    ageDrink.value = ""
+}
+
+// Swtich Operator
+
+let foodType = document.getElementById("foodType")
+let foodTypeResult = document.getElementById("foodTypeResult")
+
+foodType.addEventListener("change", (e) => {
+    e.preventDefault();
+    switch(foodType.value) {
+        case "orange":
+            foodTypeResult.value = "Orange is rich in Vitamin C.";
+            break;
+        case "spinach":
+            foodTypeResult.value = "Spinach is rich in Calcium.";
+            break;
+    }
+})
+
+
+
 
 
 

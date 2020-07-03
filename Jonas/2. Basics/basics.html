@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
     <script>console.log("JS line from HTML file")</script>
-    
+    <style>
+    .code {
+        padding: 5px;
+        background-color: palegoldenrod;
+    }
+    </style>
 </head>
 <body>
     <h2>Section 2: JavaScript Language Basics</h2>
@@ -35,6 +40,87 @@
         <p id="bmiCat"></p>
 
     </form>
+    
+
+    <div>
+        <h3>Lesson 2.15 - Boolean Logic</h3>
+
+        <p>AND represented by && in JavaScript, when all conditions are true</p>
+        <p>OR represented by || in JavaScript, when atleast on condition is true.</p>        
+        <p>NOT represented by ! in JavaScript, when the inverse of the condition need to be checked.
+            x != 10 is equivalent to x is not equal to 10.
+        </p>
+    </div>
+
+        <h3>Lesson 2.16 - The Ternary Operator and Switch Statements</h3>
+        <p>It allows to write <b>if</b> and <b>else</b> statements in one line.</p>
+
+        <h4>Ternary Operator "? :"</h4>
+        <form id="beerOrJuiceForm">
+            <label for="ageDrink">Age: </label>
+            <input type="text" id="ageDrink" placeholder="Enter age here" autocomplete="off">
+            <input type="submit" value="Beer or Juice">
+            <input type="text" id="beerOrJuice">
+            <br><br>
+            <code style="padding: 5px; background-color: palegoldenrod;">ageDrink.value > 21 ? beerOrJuice.value = "Drink Beer" : beerOrJuice.value = "Drink Juice"</code>
+        </form>
+
+        <h4>Switch Operator</h4>
+
+        <form action="">
+            <label for="foodType">Select Food</label>
+            <select name="foodType" id="foodType">
+                <option value="orange">Orange</option>
+                <option value="spinach">Spinach</option>
+            </select>
+            <input type="text" id="foodTypeResult" autocomplete="off">
+        </form>
+        <br>
+        <code style="padding: 5px; background-color: palegoldenrod;">
+            switch(foodType.value) {
+                case "orange":
+                    foodTypeResult.value = "Orange is rich in Vitamin C.";
+                    break;
+                case "spinach":
+                    foodTypeResult.value = "Spinach is rich in Calcium.";
+                    break;
+            }
+        </code>
+        <br><br>
+        <h3>2.17. Truthy, and Falsy values and Equality Operators</h3>
+        <h4>Truthy and Falsy Values</h4>
+        <p>Falsy values: undefined, null, 0, "", NaN. Truthy values shall turn out to be false in if and else statements</p>
+        <p>Truthy values: All values which are not Falsy.</p>
+        <code style="padding: 5px; background-color: palegoldenrod;">
+            let x = 0;
+            if (x) {
+                console.log("Truthy")
+            }
+            else {
+                console.log("Falsy")
+            }
+        </code>
+        <p>For the above code, "Falsy" shall be logged.</p>
+
+        <h4>Equality Operators</h4>
+        <p>"===" does not do type coercion while "==" does</p>
+        <p>1 == "1" returns true</p>
+        <p>1 === "1" returns false, best practice to use triple equal signs.</p>
+        <br>
+        <h3>Function Statements and Expressions</h3>
+        <h4>Function Decalaration</h4>
+        <p>function hello(name) {}</p>
+        <h4>Function Statement</h4>
+        <p>let hello = function(name) {}</p>
+        <h4>Expressions</h4>
+        <p>JavaScript Expressions are a pieces of codes that always produce a value. for e.g 2+3, console.log(someValue)</p>
+
+        <h3>2.22. Arrays</h3>
+
+        <h4>Ways of declaring an array:</h4>
+        <code class="code">let myArray = ["Hydrogen", "Helium"];</code><br>
+        <code class="code">let myArray = new Array("Hydrogen", "Helium")</code>
+
     <script src="basics.js"></script>
 </body>
 </html>
