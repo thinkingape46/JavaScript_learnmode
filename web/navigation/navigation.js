@@ -1,10 +1,17 @@
-dD = document.getElementById("dropDown")
-dDlist = document.getElementById("dropDownList")
+dD = document.getElementById("dropDown");
+dDOne = document.getElementById("dropDownOne");
+dDTwo = document.getElementById("dropDownTwo");
 
-dD.onmouseover = function() {
-    dDlist.style.display = "block";
-}
-dD.onmouseout = function() {
-    dDlist.style.display = "none";
-    
-}
+dD.addEventListener("mouseover", function() {
+    dDOne.style.top = "40px";
+    dDOne.style.transitionDuration = "500ms";
+    dDTwo.style.top = "83px";
+    dDTwo.style.transitionDuration = "700ms";
+})
+
+dD.addEventListener("mouseout", function() {
+    dDOne.style.top = "0px";
+    dDOne.style.transitionDuration = "1s";
+    dDTwo.style.top = "0px";
+    dDTwo.style.transitionDuration = "1s";
+})

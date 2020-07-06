@@ -1,3 +1,23 @@
-#dropDownList {
-    display: none;
+ul li {
+    list-style: none;
+    padding: 10px 20px;
+    background-color: grey;
+    text-align: center;
+    width: 100px;
+    margin: 3px;
+    color: honeydew;
+    box-sizing: border-box;
+    float: left;
+}
+
+#dropDown {
+    position: relative;
+    list-style: none;
+}
+
+#dropDownOne, #dropDownTwo{
+    position: absolute;
+    top: 0;
+    left: -3px;
+    z-index: -1;
 }
