@@ -10,8 +10,8 @@ dD.addEventListener("mouseover", function() {
 })
 
 dD.addEventListener("mouseout", function() {
-    dDOne.style.top = "0px";
+    dDOne.style.top = "-3px";
     dDOne.style.transitionDuration = "1s";
-    dDTwo.style.top = "0px";
+    dDTwo.style.top = "-3px";
     dDTwo.style.transitionDuration = "1s";
 })
