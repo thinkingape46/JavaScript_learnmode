@@ -11,6 +11,7 @@ h2 {
 }
 
 .box {
+    position: relative;
     width: 75%;
     background-color: #abc5b7;
     color: #5e4746;
@@ -18,6 +19,7 @@ h2 {
     margin: 20px 100px;
     box-shadow: 0 0 10px #3a3939;
     display: flex;
+    justify-content: space-evenly;    
 }
 
 .playerOne, .playerTwo {
@@ -49,4 +51,47 @@ h2 {
     font-size: 3em;
 }
 
+#dice{
+    position: absolute;
+    top: 150px;
+}
+#dice img{
+    height: 100px;
+}
 
+#player-one-roll, #player-two-roll, #player-one-hold, #player-two-hold {
+    position: absolute;
+    top: 225px;
+    padding: 12px 30px;
+    border-radius: 10px;
+    background-color: #0bd43d;
+    border: 0;
+    padding: 0;
+}
+#player-one-hold, #player-two-hold {
+    position: absolute;
+    top: 280px;
+    padding: 12px 30px;
+    border-radius: 10px;
+    background-color: #af7406;
+    border: 0;
+    padding: 0;
+}
+
+#player-one-roll, #player-one-hold {
+    left: 138px;
+}
+#player-two-roll, #player-two-hold {
+    left: 513px;
+}
+
+.button-roll-hold a {
+    display: block;
+    text-decoration: none;
+    display: block;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    color: #000000;
+}
