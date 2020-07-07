@@ -65,6 +65,15 @@ h2 {
 #dice {
     height: 100px;
     left: 325px;
+    animation-name: shake;
+    animation-duration: 500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+@keyframes shake {
+    33% {transform: rotate(-1deg);}
+    66% {transform: rotate(1deg);}
+    100% {transform: rotate(0deg);}
 }
 
 #player-one-roll, #player-two-roll, #player-one-hold, #player-two-hold, #button-start-stop {
