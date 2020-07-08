@@ -2,9 +2,10 @@ body {
     background-color: #666666;
     color:  #000000;
     width: 1000px;
-    margin: 0 auto;    
+    margin: auto;    
     padding-top: 50px;
     position: relative;
+    font-family: 'Roboto Mono', monospace;
 }
 
 h2 {
@@ -18,18 +19,15 @@ h2 {
     background-color: #abc5b7;
     color: #5e4746;
     height: 400px;
-    margin: 20px 100px;
+    margin: 20px auto;
     box-shadow: 0 0 10px #3a3939;
     display: flex;
     justify-content: space-evenly;    
+    background-color: #6cfdb2ec;   
 }
 
 .playerOne, .playerTwo {
     flex-basis: 50%;
-    background-color: #6cfdb2ec;
-}
-.playerTwo {
-    background-color: #a5f5cb;
 }
 
 .score-box, .score-box-round {
@@ -111,7 +109,7 @@ h2 {
     height: 40px;
     line-height: 40px;
     padding: 0;
-    color: #000000;
+    color: #ffffff;
 }
 #button-start-stop {
     left: 325px;
@@ -153,14 +151,18 @@ h2 {
 }
 #player-one-label, #player-two-label {
     position: absolute;
-    padding: 5px 10px;
+    width: 15%;
+    height: 5%;
+    text-align: center;
     background-color: #db1f6a;
-    top: 290px;
+    padding: 0;
+    top: 31%;
     border-radius: 3px;
+    color: #ffffff;
     }
 #player-one-label {
-    left: 228px;
+    left: 17%;
     }
 #player-two-label {
-    left: 601px;
+    left: 67%;
     }
