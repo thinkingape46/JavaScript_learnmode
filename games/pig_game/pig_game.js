@@ -38,6 +38,7 @@ function buttonsVisibility(game_turn) {
         playerTwoHold.style.display = "none";        
         playerOneScore.textContent = 0;
         playerTwoScore.textContent = 0;        
+        playerOneRoundScore.textContent = 0, playerTwoRoundScore.textContent = 0, 0; 
         startStop.textContent = "START";
         startStop.style.backgroundColor = "#0bd43d";        
         dice.src = "images/baby_pig.png";
@@ -62,7 +63,7 @@ function buttonsVisibility(game_turn) {
         playerTwoHold.style.display = "none";
         gameEnd.style.opacity = 1;        
         playerOneScore.textContent = 0;
-        playerTwoScore.textContent = 0;  
+        playerTwoScore.textContent = 0; 
         startStop.textContent = "START";
         startStop.style.backgroundColor = "#0bd43d";
         dice.src = "images/baby_pig.png";
