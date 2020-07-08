@@ -132,14 +132,14 @@ function holdDiceTwo() {
 // Player two game end
 
 function gameWinCheck() {
-    if (Number(playerOneScore.textContent) >= 20) {
+    if (Number(playerOneScore.textContent) >= 100) {
         gameEnd.innerHTML = `<p>PLAYER ONE WON</p>
         <p>PlAYER ONE: ${playerOneScore.textContent}</p>
         <p>PlAYER TWO: ${playerTwoScore.textContent}</p>`
         game_turn = "end";
         buttonsVisibility(game_turn);
     }
-    if (Number(playerTwoScore.textContent) >= 20) {
+    if (Number(playerTwoScore.textContent) >= 100) {
         gameEnd.innerHTML = `<p>PLAYER TWO WON</p>
         <p>PLAYER ONE: ${playerOneScore.textContent}</p>
         <p>PLAYER TWO: ${playerTwoScore.textContent}</p>`
