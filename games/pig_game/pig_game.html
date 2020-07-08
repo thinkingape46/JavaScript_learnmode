@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="pig_game.css">
 </head>
 <body>
-    <h2>Pig Game</h2>
-
     <div class="box">
 
         <div class="players playerOne">
             <div class="score-box">
-                <p class="score-label">Score</p>
+                <p class="score-label">TOTAL</p>
                 <p id="score-num-one">0</p>
             </div>
             <div class="score-box-round">                
@@ -23,7 +21,7 @@
 
         <div class="players playerTwo">
             <div class="score-box">
-                <p class="score-label">Score</p>
+                <p class="score-label">TOTAL</p>
                 <p id="score-num-two">0</p>
             </div>
             <div class="score-box-round">                
@@ -32,7 +30,7 @@
         </div>
 
         <div id="dice-image">
-            <img id="dice" src="images/dice_6.png" alt="dice">
+            <img id="dice" src="images/baby_pig.png" alt="dice">
         </div>
 
         <div>
@@ -50,6 +48,15 @@
             <a class="button-start-stop" id="button-start-stop" href="#">START</a>
         </div>
 
+        <div id="game-end">
+            <p>1</p>
+            <p>1</p>
+            <p>1</p>
+        </div>
+    </div>
+    <div>
+        <p id="player-one-label">PLAYER ONE</p>
+        <p id="player-two-label">PLAYER TWO</p>
     </div>
 
     <script src="pig_game.js"></script>
