@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Objects: Object.create</title>
+    <link rel="stylesheet" href="../lecture_styling.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Creating Objects: Object.create</h1>
+        <p>We have previously created Objects using constructor.<br>
+        In this method, first we shall create a object that acts as an prototype and then create a new object base on that very object.</p>
+        <code>
+            var personProto = {<br>
+                calculateAge: function() {<br>
+                    console.log(2020 - this.yearOfBirth);<br>
+                }};<br>
+        </code>
+        <p>We have created an object <code>personProto</code> which will be a constructor for our <code>john</code> object.</p>
+        <p>Let's create an Object <code>john</code> in the below line.</p>
+        <code>var john = Object.create(personProto);</code>
+        <br>
+        <p>Let's add the parameters now</p>
+        <code>
+            john.name = "John";<br>
+            john.dateofBirth = 1990;<br>
+            john.job = "teacher";<br>
+        </code>
+        <br>
+        <p>There is another way to create an Object using <code>Object.create</code> method. The method actually accetps more than one parameter, we can add the constructor Object as a first parameter.</p>
+        <p>Let's create an Object with name <code>jane</code> using the above mentioned method.</p>
+        <code>
+            var jane = Object.create(personProto, {<br>
+                name: {value: "Jane"},<br>
+                yearOfBirth: {value: 1980},<br>
+                job: {value: "designer"}<br>
+            })<br>
+        </code>
+        <br>
+        <p>Inspect both the Objects <code>jane</code> and <code>john</code> in the console. Both Objects shall have same properties and methods</p>
+        <p>With <code>Object.create</code> the object we create inherites directly from the first parameter we pass, in this case it is <code>personProto</code></p>
+        <p>While on the other hand, the object inherits from the constructor prototype property.</p>
+
+
+        <script src="5_63_creating_objects_object_create.js"></script>
+        
+    </div>
+    
+</body>
+</html>
