@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passing functions as arguments</title>
+    <link rel="stylesheet" href="../lecture_styling.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Passing functions as arguments</h2>
+        <code>
+            var myArray = [1,2,3,4,5,6,7];<br>
+            <br>
+            function squareFunc(num) {<br>
+                return num*num;<br>
+            }<br>
+
+            function squareArrayFunc(array, func) {<br>
+                squaredArray = [];<br>
+
+                for (i = 0; i < array.length; i++) {<br>
+                    squaredArray.push(func(array[i]));<br>
+                };<br>
+                console.log(squaredArray);<br>
+            }<br>
+            <br>
+            squareArrayFunc(myArray, squareFunc);<br>
+        </code>
+    </div>
+
+<script src="5_65_passing_functions_as_arguments.js"></script>
+
+</body>
+</html>
