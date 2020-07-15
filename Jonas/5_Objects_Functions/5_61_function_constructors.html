@@ -3,81 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Function Constructor</title>
-    <style>
-        code {
-            background-color: rgb(246, 235, 115);
-            color: rgb(138, 78, 0);
-        }
-    </style>
+    <link rel="stylesheet" href="../lecture_styling.css">
 </head>
 <body>
-    <h2>Creation of object with object literal</h2>
-    <code>
-        var john = {<br>
-            name: 'John',<br>
-            yearOfBirth: 1990,<br>
-            job: 'teacher'<br>
-        }
-    </code>
-    <br><br>
+    <div class="container">
+        <h1>5.62. Creating Objects: Function Constructors</h1>
+        <h2>Creation of object with object literal</h2>
+        <code>
+            var john = {<br>
+                name: 'John',<br>
+                yearOfBirth: 1990,<br>
+                job: 'teacher'<br>
+            }
+        </code>
+        <br><br>
 
-    <h2>Creating of object with function constructor</h2>
-    <code>
-        var Person = function(name, yearOfBirth, job) {<br>
+        <h2>Creating of object with function constructor</h2>
+        <code>
+            var Person = function(name, yearOfBirth, job) {<br>
+                this.name = name;<br>
+                this.yearOfBirth = yearOfBirth;<br>
+                this.job = job;<br>
+            }
+        </code>
+        <br><br>
+
+        <h2>Creating of an instance of Person object.</h2>
+        <p>When we new operator, an empty object is created. Then the constructor function "Person" is called all the arguments we specified (i.e. name, job etc.)</p>
+        <p>Typical <code>this</code> keyword points to <code>global object</code>. But the <code>new</code> keyword takes cares of it and makes <code>this</code> keyword to point towards the <code>Person.</code></p>
+        <code>var john = new Person('John', 1990, 'teacher');</code>
+        <br><br>
+
+        <h2>Lets add a method to function constructor <code>Person.</code></h2>
+        <code>
+            var Person = function(name, yearOfBirth, job) {<br>
+                this.name = name;<br>
+                this.yearOfBirth = yearOfBirth;<br>
+                this.job = job;<br>
+                this.calculateAge = function() {<br>
+                    let age = (2020 - this.yearOfBirth);<br>
+                    console.log(age);<br>
+                }}<br>
+        </code>
+        <p>Create an instance of constructor <code>Person.</code></p>
+        <code>var jane = new Person('Jane', 1980, 'designer');</code>
+        <p>Now <code>jane.calculateAge()</code> logs a value of 40 into console.</p>
+        <br>
+        <h2>Using <code>prototype</code></h2>
+        <p>Now, we move the <code>calculateAge</code> function out of the <code>Person</code> constructor and add it to <code>Person</code> prototype. It should work same as before</p>
+        <p>But why do we do that?  Because it makes the inheritance possible, and efficient. Why keep the method in every object when we can add it to prototype and still access it?</p>
+        <p>It's not in the </p>
+        <p>The <code>calculateAge</code> method is not attached to <code>Person</code> or <code>john</code>, still both of them can access the method because it's in the prototype.</p>
+        <p></p>
+        <code>var Person = function(name, yearOfBirth, job) {<br>
             this.name = name;<br>
             this.yearOfBirth = yearOfBirth;<br>
             this.job = job;<br>
-        }
-    </code>
-    <br><br>
-
-    <h2>Creating of an instance of Person object.</h2>
-    <p>When we new operator, an empty object is created. Then the constructor function "Person" is called all the arguments we specified (i.e. name, job etc.)</p>
-    <p>Typical <code>this</code> keyword points to <code>global object</code>. But the <code>new</code> keyword takes cares of it and makes <code>this</code> keyword to point towards the <code>Person.</code></p>
-    <code>var john = new Person('John', 1990, 'teacher');</code>
-    <br><br>
-
-    <h2>Lets add a method to function constructor <code>Person.</code></h2>
-    <code>
-        var Person = function(name, yearOfBirth, job) {<br>
-            this.name = name;<br>
-            this.yearOfBirth = yearOfBirth;<br>
-            this.job = job;<br>
-            this.calculateAge = function() {<br>
-                let age = (2020 - this.yearOfBirth);<br>
-                console.log(age);<br>
-            }}<br>
-    </code>
-    <p>Create an instance of constructor <code>Person.</code></p>
-    <code>var jane = new Person('Jane', 1980, 'designer');</code>
-    <p>Now <code>jane.calculateAge()</code> logs a value of 40 into console.</p>
-    <br>
-    <h2>Using <code>prototype</code></h2>
-    <p>Now, we move the <code>calculateAge</code> function out of the <code>Person</code> constructor and add it to <code>Person</code> prototype. It should work same as before</p>
-    <p>But why do we do that?  Because it makes the inheritance possible, and efficient. Why keep the method in every object when we can add it to prototype and still access it?</p>
-    <p>It's not in the </p>
-    <p>The <code>calculateAge</code> method is not attached to <code>Person</code> or <code>john</code>, still both of them can access the method because it's in the prototype.</p>
-    <p></p>
-    <code>var Person = function(name, yearOfBirth, job) {<br>
-        this.name = name;<br>
-        this.yearOfBirth = yearOfBirth;<br>
-        this.job = job;<br>
-    }<br><br>
-    Person.prototype.calculateAge = function() {<br>
-    let age = (2020 - this.yearOfBirth);<br>
-    console.log(age);}<br>
-    john.calculateAge();</code>
-    <br>
-    <h2>We have added methods to prototype, let's add properties now.</h2>
-    <code>Person.prototype.species = 'Homo sapiens sapiens';<br>
-    console.log(jane.species)</code>
-    <p>Now above console log returns "Homo sapiens sapiens"
-    </p>
-
-
-
-
-
+        }<br><br>
+        Person.prototype.calculateAge = function() {<br>
+        let age = (2020 - this.yearOfBirth);<br>
+        console.log(age);}<br>
+        john.calculateAge();</code>
+        <br>
+        <h2>We have added methods to prototype, let's add properties now.</h2>
+        <code>Person.prototype.species = 'Homo sapiens sapiens';<br>
+        console.log(jane.species)</code>
+        <p>Now above console log returns "Homo sapiens sapiens"
+        </p>
+    </div>
 
 
     <script src="5_61_function_constructors.js"></script>

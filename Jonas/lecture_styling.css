@@ -1,0 +1,33 @@
+body {
+    background-color: rgb(42, 42, 42);
+    font-family: monospace, sans-serif;
+}
+.container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 10px;
+    background: linear-gradient(#fac2fa, #91efff);
+}
+code {
+    background-color: rgb(246, 235, 115);
+    color: rgb(138, 78, 0);
+}
+
+@media only screen and (min-width: 600px) {
+    .container {
+        width: 500px;
+        padding: 15px;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .container {
+        width: 700px;
+        padding: 18px;
+    }
+}
+@media only screen and (min-width: 1080px) {
+    .container {
+        width: 950px;
+        padding: 50px;
+    }
+}
