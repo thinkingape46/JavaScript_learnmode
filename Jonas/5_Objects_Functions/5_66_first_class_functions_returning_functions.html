@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../lecture_styling.css">
+    <title>Functions returning Functions</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Functions returning Functions</h2>
+        <code>
+            function floorFunc(query) {<br>
+                if (query === "bmi") {<br>
+                    return function bmiFunc(w, h) <br>{
+                        console.log((w)/(h * h));<br>
+                    }}<br>
+                else if (query === "maxHR") {<br>
+                    return function maxHRFunc(age) {<br>
+                        console.log(220 - age);<br>
+                    }}<br>
+                else {<br>
+                    console.log("Please query either 'bmi' or 'maxHR'")<br>
+                }}<br>
+                <br>
+            floorFunc('bmi')(64, 1.72)<br>
+            floorFunc('maxHR')(29)<br>
+            floorFunc('hello')<br>
+        </code>
+        <h2>Immediately Invoked Function Expressions (IIFE)</h2>
+        <code>
+            (function(score) {<br>
+                if (score > 100) {<br>
+                    console.log("Game Complete")<br>
+                }<br>
+                else {<br>
+                    console.log('Game Continues')<br>
+                }<br>
+            })(10)<br>
+        </code>
+    </div>
+<script src="5_66_first_class_functions_returning_functions.js"></script>
+</body>
+</html>
