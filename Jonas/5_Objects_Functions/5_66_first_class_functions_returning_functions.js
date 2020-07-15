@@ -33,3 +33,31 @@ floorFunc('hello')
 })(10)
 console.log(score)
 */
+
+// Closures
+
+var yearOfBirth = [1945, 2005, 1992]
+
+function calculateAge(yearOfBirth) {
+    return 2020 - yearOfBirth;
+}
+
+function fullAge(limit, age) {
+    return age >= limit;
+}
+
+
+function arrayFunc(array, func) {
+    let arrayTemp = []
+
+    for (i=0; i<array.length; i++) {
+        arrayTemp.push(func(array[i]))
+    }
+    return arrayTemp
+}
+
+var ages = arrayFunc(yearOfBirth, calculateAge)
+
+var japanFullAge = arrayFunc(ages, fullAge.bind(this, 22))
+console.log(ages)
+console.log(japanFullAge)
