@@ -36,7 +36,7 @@ var john = new Person('John', 1990, 'teacher');
 var jane = new Person('Jane', 1980, 'designer');
 john.calculateAge()
 jane.calculateAge()
-*/
+
 var Person = function(name, yearOfBirth, job) {
     this.name = name;
     this.yearOfBirth = yearOfBirth;
@@ -57,3 +57,4 @@ Person.prototype.species = 'Homo sapiens sapiens'
 
 console.log(Person.species)
 console.log(jane.species)
+*/

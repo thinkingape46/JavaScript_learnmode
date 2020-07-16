@@ -32,7 +32,7 @@ floorFunc('hello')
     }
 })(10)
 console.log(score)
-*/
+
 
 // Closures
 
@@ -61,3 +61,69 @@ var ages = arrayFunc(yearOfBirth, calculateAge)
 var japanFullAge = arrayFunc(ages, fullAge.bind(this, 22))
 console.log(ages)
 console.log(japanFullAge)
+
+
+
+// Simple quiz
+var quizQuestion = function(question, choice, answer) {
+    this.question = question;
+    this.choice = choice;
+    this.answer = answer;
+}
+
+// var quiz = function() {
+//     var randNum = Math.floor(Math.random() * 2 + 1);
+//     var questions = ['placeholder', questionOne, questionTwo];
+//     console.log(questions[randNum].question);
+//     console.log(`0. ${questions[randNum].choice[0]}`);
+//     console.log(`1. ${questions[randNum].choice[1]}`);
+//     console.log(`2. ${questions[randNum].choice[2]}`);
+
+//     var answer = prompt("Choose your answer: ");
+
+//     if (questions[randNum].choice[answer] === questions[randNum].answer) {
+//         console.log("Right answer!");
+//     }
+//     else {
+//         console.log("Wrong answer!")
+//     }
+// }
+
+var questionOne = new quizQuestion(
+    "Is JavaScript a cool programming language?",
+    ['yes', 'no', 'not sure'],
+    "yes");
+
+var questionTwo = new quizQuestion(
+    "Who is your JavaScript teacher?",
+    ["Matthew", "Jonas", "Clark"],
+    "Jonas"
+);
+
+game = 'on';
+
+(function() {
+
+    while (game === 'on') {
+    var randNum = Math.floor(Math.random() * 2 + 1);
+    var questions = ['placeholder', questionOne, questionTwo];
+    console.log(questions[randNum].question);
+    console.log(`0. ${questions[randNum].choice[0]}`);
+    console.log(`1. ${questions[randNum].choice[1]}`);
+    console.log(`2. ${questions[randNum].choice[2]}`);
+
+    var answer = prompt("Choose your answer: \nenter 'q' to quit. ");
+
+    if (questions[randNum].choice[answer] === questions[randNum].answer) {
+        console.log("Right answer!");
+    }
+    else if (answer === 'q') {
+        console.log('Quiz Ended!')
+        game = 'off';
+    }
+    else {
+        console.log("Wrong answer!")
+    }}
+})();
+
+*/

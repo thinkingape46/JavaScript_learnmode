@@ -8,7 +8,217 @@
 </head>
 <body>
     <div class="container">
-        <h2>Functions returning Functions</h2>
+        <h1>5.62. Creating Objects: Function Constructors</h1>
+        <h2>Creation of object with object literal</h2>
+        <code>
+            var john = {<br>
+                name: 'John',<br>
+                yearOfBirth: 1990,<br>
+                job: 'teacher'<br>
+            }
+        </code>
+        <br><br>
+
+        <h2>Creating of object with function constructor</h2>
+        <code>
+            var Person = function(name, yearOfBirth, job) {<br>
+                this.name = name;<br>
+                this.yearOfBirth = yearOfBirth;<br>
+                this.job = job;<br>
+            }
+        </code>
+        <br><br>
+
+        <h2>Creating of an instance of Person object.</h2>
+        <p>When we new operator, an empty object is created. Then the constructor function "Person" is called all the arguments we specified (i.e. name, job etc.)</p>
+        <p>Typical <code>this</code> keyword points to <code>global object</code>. But the <code>new</code> keyword takes cares of it and makes <code>this</code> keyword to point towards the <code>Person.</code></p>
+        <code>var john = new Person('John', 1990, 'teacher');</code>
+        <br><br>
+
+        <h2>Lets add a method to function constructor <code>Person.</code></h2>
+        <code>
+            var Person = function(name, yearOfBirth, job) {<br>
+                this.name = name;<br>
+                this.yearOfBirth = yearOfBirth;<br>
+                this.job = job;<br>
+                this.calculateAge = function() {<br>
+                    let age = (2020 - this.yearOfBirth);<br>
+                    console.log(age);<br>
+                }}<br>
+        </code>
+        <p>Create an instance of constructor <code>Person.</code></p>
+        <code>var jane = new Person('Jane', 1980, 'designer');</code>
+        <p>Now <code>jane.calculateAge()</code> logs a value of 40 into console.</p>
+        <br>
+        <h2>Using <code>prototype</code></h2>
+        <p>Now, we move the <code>calculateAge</code> function out of the <code>Person</code> constructor and add it to <code>Person</code> prototype. It should work same as before</p>
+        <p>But why do we do that?  Because it makes the inheritance possible, and efficient. Why keep the method in every object when we can add it to prototype and still access it?</p>
+        <p>It's not in the </p>
+        <p>The <code>calculateAge</code> method is not attached to <code>Person</code> or <code>john</code>, still both of them can access the method because it's in the prototype.</p>
+        <p></p>
+        <code>var Person = function(name, yearOfBirth, job) {<br>
+            this.name = name;<br>
+            this.yearOfBirth = yearOfBirth;<br>
+            this.job = job;<br>
+        }<br><br>
+        Person.prototype.calculateAge = function() {<br>
+        let age = (2020 - this.yearOfBirth);<br>
+        console.log(age);}<br>
+        john.calculateAge();</code>
+        <br>
+        <h2>We have added methods to prototype, let's add properties now.</h2>
+        <code>Person.prototype.species = 'Homo sapiens sapiens';<br>
+        console.log(jane.species)</code>
+        <p>Now above console log returns "Homo sapiens sapiens"
+        </p>
+
+        <h1>5.62. Prototype chain in console</h1>
+        <h2>Inspection Objects</h2>
+        <p>Lets create a constructor first.</p>
+        <code>let Person = function(name, yearOfBirth, job) {<br>
+            this.name = name;<br>
+            this.yearOfBirth = yearOfBirth;<br>
+            this.job = job<br>
+        }</code>
+        <p>Then instaniate with <code>john</code> object and add <code>calculateAge</code> method.</p>
+        <code>
+            var john = new Person('John', 1990, 'teacher');<br><br>
+            Person.prototype.calculateAge = function() {<br>
+                console.log(2020 - this.yearOfBirth)<br>
+            }
+        </code>
+        <p>Now if we enter <code>john</code> in the console, the following shall be the output.</p>
+        <code>
+            Person {name: "John", yearOfBirth: 1990, job: "teacher"}<br>job: "teacher" name: "John" yearOfBirth: 1990<br>
+            __proto__:<br>
+            calculateAge: f()<br>
+            constructor: ƒ (name, yearOfBirth, job)__proto__:<br>
+            Object.......<em>you can expand to see the complete prototype chain.</em>
+        </code>
+        <p><code>__proto__</code> in the above output is the prototype of the <code>john</code> object.</p>
+        <p>Lets add a propery to <code>Person</code>.</p>
+        <code>Person.prototype.genus = "Homo";</code>
+        <br><br>
+        <p>Lets try some <code>Object</code> methods.</p>
+        <p><code>john.hasOwnProperty('job')</code> returns <code>true</code> because <code>john</code> object has the property <code>job</code>.</p>
+        <p><code>john instanceof Person</code> returns <code>true</code> becasuse <code>john</code> is created using the function constructor of <code>Person</code>.</p><br>
+        <p>Lets show the everything in JavaScrip is a oject by creating an array and using <code>console.info()</code> on it.</p>
+        <code>myArray = [1,2,3]<br>
+        console.info(myArray)</code>
+        <p>If we expand the output, we will find <code>Object</code> in the prototype chain. You will also see a list of methods such as <code>push, filter, find</code> etc.. and each array has have access to these methods.</p>
+
+        
+        
+
+
+        <h1>5.63. Creating Objects: Object.create</h1>
+        <p>We have previously created Objects using constructor.<br>
+        In this method, first we shall create a object that acts as an prototype and then create a new object base on that very object.</p>
+        <code>
+            var personProto = {<br>
+                calculateAge: function() {<br>
+                    console.log(2020 - this.yearOfBirth);<br>
+                }};<br>
+        </code>
+        <p>We have created an object <code>personProto</code> which will be a constructor for our <code>john</code> object.</p>
+        <p>Let's create an Object <code>john</code> in the below line.</p>
+        <code>var john = Object.create(personProto);</code>
+        <br>
+        <p>Let's add the parameters now</p>
+        <code>
+            john.name = "John";<br>
+            john.dateofBirth = 1990;<br>
+            john.job = "teacher";<br>
+        </code>
+        <br>
+        <p>There is another way to create an Object using <code>Object.create</code> method. The method actually accetps more than one parameter, we can add the constructor Object as a first parameter.</p>
+        <p>Let's create an Object with name <code>jane</code> using the above mentioned method.</p>
+        <code>
+            var jane = Object.create(personProto, {<br>
+                name: {value: "Jane"},<br>
+                yearOfBirth: {value: 1980},<br>
+                job: {value: "designer"}<br>
+            })<br>
+        </code>
+        <br>
+        <p>Inspect both the Objects <code>jane</code> and <code>john</code> in the console. Both Objects shall have same properties and methods</p>
+        <p>With <code>Object.create</code> the object we create inherites directly from the first parameter we pass, in this case it is <code>personProto</code></p>
+        <p>While on the other hand, the object inherits from the constructor prototype property.</p>
+
+
+
+
+        <h1>5.64. Primitives vs. Objects</h1>
+        <h2>Following are Primitives and the rest are objects</h2>
+            <ul>
+                <li>Numbers</li>
+                <li>Strings</li>
+                <li>Booleans</li>
+                <li>Undefined</li>
+                <li>Null</li>
+            </ul>
+        <p>Variables containing the Primitives hold the data inside the variable itself.</p>
+        <p>On the other hand, variables associated with the object do not contain the object, rather they hold reference to the location where the object is stored.</p>
+        <p>Let's explain the difference with the below examples.</p>
+        <code>
+            var a = 3;<br>
+            var b = a;<br>
+            console.log(b)<br>
+            a = 5;<br>
+            console.log(b);<br>
+        </code>
+        <p>If we look at the above the lines, the first log returns a value of 3, since we set <code>var b = a;</code></p>
+        <p>In the 4th line, when we assigned a value of 5 to <code>a</code>, the <code>b</code> still returns a value of 3 (line 5).</p>
+        <p>This is because, the value of primitive is stored in the variable itself.</p>
+        <br>
+        <p>This works differently with objects</p>
+        <code>
+            var objOne = {<br>
+                name: "John",<br>
+                job: "teacher"<br>
+            }<br>
+            var objTwo = objOne;<br>           
+            console.log(objTwo.name)<br>
+            objOne.name = "Emma";<br>
+            console.log(objTwo.name)<br>
+        </code>
+        <br>
+        <p>The first and second console log for <code>ObjTwo.name</code> returns <code>John</code> and <code>Jane</code> respectively, because we change the original <code>name</code> property for the object <code>objOne</code> in the seventh line.</p>
+        <p>This shows that when we create a new object with the line <code>var objTwo = objOne</code>, the second object is not given an new space to store, rather it just references. Then when the original reference changes, the rest shall too.</p>
+        <br>
+        <p>Look at another example, the change in primitive <code>a</code> inside the function <code>change</code> didn't change the global counterpart. Use the console to experiment with the code.</p>
+        <code>console.log(`a outside function: ${a}`)<br>
+            function change(a, b) {<br>
+                a = 50;<br>
+                b.job = "physicist";<br>
+                console.log(`a inside function: ${a}`)<br>
+            }<br>            
+            change(a, objOne)<br>
+            console.log(`a outside function: ${a}`)<br>
+            console.log(objOne.job)</code><br>
+
+        <h2>Passing functions as arguments</h2>
+        <code>
+            var myArray = [1,2,3,4,5,6,7];<br>
+            <br>
+            function squareFunc(num) {<br>
+                return num*num;<br>
+            }<br>
+
+            function squareArrayFunc(array, func) {<br>
+                squaredArray = [];<br>
+
+                for (i = 0; i < array.length; i++) {<br>
+                    squaredArray.push(func(array[i]));<br>
+                };<br>
+                console.log(squaredArray);<br>
+            }<br>
+            <br>
+            squareArrayFunc(myArray, squareFunc);<br>
+        </code>
+
+
+        <h2>5.66. Functions returning Functions</h2>
         <code>
             function floorFunc(query) {<br>
                 if (query === "bmi") {<br>
@@ -39,6 +249,11 @@
             })(10)<br>
         </code>
     </div>
-<script src="5_66_first_class_functions_returning_functions.js"></script>
+    <script src="5_61_function_constructors.js"></script>
+    <script src="5_62_prototype_chain_in_console.js"></script>
+    <script src="5_63_creating_objects_object_create.js"></script>
+    <script src="5_64_primitives_vs_objects.js"></script>
+    <script src="5_65_passing_functions_as_arguments.js"></script>
+    <script src="5_66_first_class_functions_returning_functions.js"></script>
 </body>
 </html>

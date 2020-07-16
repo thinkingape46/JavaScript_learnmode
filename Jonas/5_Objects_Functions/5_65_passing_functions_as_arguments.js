@@ -1,3 +1,5 @@
+/*
+
 var myArray = [1,2,3,4,5,6,7];
 
 function squareFunc(num) {
@@ -18,3 +20,5 @@ function ArrayFunc(array, func) {
 
 ArrayFunc(myArray, squareFunc);
 ArrayFunc(myArray, evenNum);
+
+*/

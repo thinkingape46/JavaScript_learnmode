@@ -1,6 +1,6 @@
 /*
 // Object.create method
-*/
+
 
 var personProto = {
     calculateAge: function() {
@@ -18,3 +18,5 @@ var jane = Object.create(personProto, {
     yearOfBirth: {value: 1980},
     job: {value: "designer"}
 })
+
+*/

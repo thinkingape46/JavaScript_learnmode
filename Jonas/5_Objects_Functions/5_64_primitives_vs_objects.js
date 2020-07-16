@@ -1,5 +1,4 @@
 /*
-*/
 
 var a = 3;
 var b = a;
@@ -28,3 +27,5 @@ function change(a, b) {
 change(a, objOne)
 console.log(`a outside function: ${a}`)
 console.log(objOne.job)
+
+*/

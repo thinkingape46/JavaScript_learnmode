@@ -1,3 +1,5 @@
+/*
+
 // 5_62_prototype_chain_in_console
 
 let Person = function(name, yearOfBirth, job) {
@@ -12,7 +14,5 @@ Person.prototype.calculateAge = function() {
     console.log(2020 - this.yearOfBirth)
 }
 Person.prototype.genus = "Homo";
-/*
-
 
 */
