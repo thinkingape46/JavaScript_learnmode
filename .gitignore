@@ -10,7 +10,8 @@
 *~
 *.sass-cache
 node_modules/
-NodeJ/Snode_modules/
+backend/node_modules/
+backend/todo_app/node_modules
 docs
 .tmp/
 
